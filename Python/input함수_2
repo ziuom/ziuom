@@ -1,0 +1,5 @@
+a=int(input("1부터 10까지의 숫자들 중 하나를 입력해보세요. : "))
+
+for i in range(a):
+    if a%(i+1)==0 :
+        print(i+1)
