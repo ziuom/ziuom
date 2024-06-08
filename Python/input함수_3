@@ -1,0 +1,10 @@
+a=int(input('a = '))
+b=int(input('b = '))
+
+if a>b :
+    print("둘 중에서 더 큰 수는", a, "입니다.")
+elif a<b :
+    print("둘 중에서 더 큰 수는", b, "입니다.")
+
+else :
+    print("a와 b의 값이 같습니다.")
