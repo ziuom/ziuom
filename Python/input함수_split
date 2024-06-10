@@ -1,0 +1,8 @@
+a,b=input().split()
+
+if a>b:
+    print("둘 중에서 더 큰 수는 ",a)
+elif a<b:
+    print("둘 중에서 더 큰 수는 ",b)
+else :
+    print("같은 수를 입력하셨습니다.")
