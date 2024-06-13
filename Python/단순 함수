@@ -1,0 +1,7 @@
+c=4
+d=4
+
+def add(a,b):
+    return a+b
+
+add(c,d)
