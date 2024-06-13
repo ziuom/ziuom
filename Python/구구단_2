@@ -1,0 +1,10 @@
+a = int(input("구구단 몇 단을 출력할까요? = "))
+
+b=1
+
+while b<10 :
+    c=a*b
+
+    print(a, "*", b, "=", c)
+
+    b=b+1
