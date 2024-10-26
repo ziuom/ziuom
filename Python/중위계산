@@ -1,0 +1,25 @@
+#중위 계산하기
+
+def infix(text):
+    stack = []
+    operators = "+-*/"
+
+    for char in text:
+        if char not in operators:
+            stack.append(int(char))
+        elif char in operators:
+            num2 = stack.pop()
+            num1 = stack.pop()
+            if char == '+':
+                res = num1+num2
+            elif char == '-':
+                res = num1-num2
+            elif char == '*':
+                res = num1*num2
+            elif char == '/':
+                res = num1/num2
+            stack.append(res)
+    return stack.pop()
+
+text = "62/3-31*+"
+print(infix(text))
