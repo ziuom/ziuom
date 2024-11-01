@@ -1,0 +1,15 @@
+num = int(input("Enter a number: "))
+if num >= 0:
+    if num == 0:
+        print("Zero")
+    else:
+        print("Positive")
+else:
+    print("Negative number")
+
+
+
+~결과~
+num에 0 이상 입력 시 - 0일 때 : 0 출력
+                    ㄴ 1 이상 양수일 때 : Positive 출력
+둘 다 아닐 때(음수일 때) - Negative number 출력
