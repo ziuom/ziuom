@@ -1,0 +1,20 @@
+# 세 명의 사람 정보를 입력받아 저장할 리스트
+people = []
+
+# 3명의 입력값을 받기
+for i in range(3):
+    name = input("이름 : ")
+    age = int(input("나이 : "))
+    gender = input("성별 (남 또는 여) : ")
+    people.append([name, age, gender])  # 입력받은 정보를 리스트에 추가
+
+# 나이를 기준으로 가장 나이가 많은 사람 찾기
+oldest_person = max(people, key=lambda x: x[1])
+
+# 결과 출력
+print(oldest_person)
+
+
+
+~결과~
+내가 입력한 정보들 중에서 제일 나이가 많은 사람의 이름, 나이, 성별이 리스트에 담겨서 출력됨.
