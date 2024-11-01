@@ -1,0 +1,20 @@
+num = float(input("Enter a number: "))
+if num > 0:
+    print("Positive number")
+elif num == 0:
+    print("Zero")
+else:
+    print("Negative number")
+
+
+
+-if 연습하기2와 다른 점은 num이 받는 값의 자료형이 int인가 float인가.
+2에서는 int로, 정수형을 받을 수 있었음.
+이번엔 float이므로 실수형(소수) 값도 받을 수 있음.(정수처럼 간단하게 입력해도 분류를 해주긴 함.)
+
+-if문의 형태도 약간 다름.
+2에서는 if,else 문으로만 구성되어 있었는데 지금은 if,elif,else 문으로 구성되어 있어 조금 더 깔끔함.
+
+
+~결과~
+num에 -3.6 입력 시 : Negative number 출력.
