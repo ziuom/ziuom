@@ -13,4 +13,4 @@ else:
 num에 0 이상 정수 입력 시
                     ㄴ 0일 때 : 0 출력
                     ㄴ 1 이상 양수일 때 : Positive 출력
-둘 다 아닐 때(음수일 때) - Negative number 출력
+둘 다 아닐 때(음수일 때) : Negative number 출력
