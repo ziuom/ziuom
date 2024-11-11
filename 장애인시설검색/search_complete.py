@@ -1,3 +1,5 @@
+import subprocess
+import json
 import streamlit as st
 import requests
 import pandas as pd
@@ -66,44 +68,52 @@ def normalize_city_name(city_name):
 
 # Streamlit 인터페이스
 st.title('장애인 전용 체육시설 찾기🏃')
-user_input = st.text_input("찾으시려는 지역을 이야기 해주세요.(ex 서울시 성동구) :")
+user_input = st.text_input("찾으시려는 지역을 이야기 해주세요.")
 
 if user_input:
-    def chatbot(user_input):
-        results = []
-        user_input = user_input.replace(" ", "")  # 공백 제거
+    def chatbot_with_ollama(user_input):
+        # 사용자 입력에 role 추가 (user 역할로 전달)
+        role_based_input = f"role: user\ncontent: Find sports facilities for disabled people in {user_input}."
 
-        # 사용자 입력을 시_도와 소재지로 나누기
-        normalized_input = normalize_city_name(user_input)
+        # Ollama CLI를 통해 모델을 실행하고 결과를 받아옴
+        ollama_command = ["ollama", "run", "llama2", "--prompt", role_based_input]
+        
+        # subprocess로 Ollama CLI 호출
+        result = subprocess.run(ollama_command, stdout=subprocess.PIPE)
+        
+        # 결과를 문자열로 변환
+        llm_output = result.stdout.decode('utf-8')
+        
+        return llm_output
 
-        # '시_도'와 '소재지'를 기준으로 검색
-        for item in all_data:
-            si_do = (item.get('시_도') or "").replace(" ", "")  # 시_도 값에서 공백 제거
-            so_jae_ji = (item.get('소재지') or "").replace(" ", "")  # 소재지 값에서 공백 제거
+    # 결과 처리
+    response = chatbot_with_ollama(user_input)
 
-            # 시_도 정규화 및 비교
-            normalized_si_do = normalize_city_name(si_do)
+    # 예시: 응답으로 받은 데이터를 DataFrame에 넣을 수 있도록 변환
+    results = []
 
-            # 사용자 입력과 시설 정보 비교
-            if normalized_input in normalized_si_do or normalized_input in so_jae_ji:  # 시_도 또는 소재지가 포함될 때
-                results.append({
-                    "시설명": item['시설명'],
-                    "주소": f"{normalized_si_do} {so_jae_ji}",
-                    "전화번호": item['전화번호'],
-                    "홈페이지": item.get('홈페이지', '없음')
-                })
+    # '시_도'와 '소재지'를 기준으로 검색
+    for item in all_data:
+        si_do = (item.get('시_도') or "").replace(" ", "")  # 시_도 값에서 공백 제거
+        so_jae_ji = (item.get('소재지') or "").replace(" ", "")  # 소재지 값에서 공백 제거
 
-        # 결과를 DataFrame으로 변환
-        if results:
-            df = pd.DataFrame(results)
-            df.index += 1  # 인덱스를 1부터 시작하도록 수정
-            return df
-        else:
-            return "찾으시는 지역에는 체육 시설이 없습니다. 다른 곳에서 찾으시겠습니까?"
+        # 시_도 정규화 및 비교
+        normalized_si_do = normalize_city_name(si_do)
 
-    response = chatbot(user_input)
+        # 사용자 입력과 시설 정보 비교
+        if normalize_city_name(user_input) in normalized_si_do or normalize_city_name(user_input) in so_jae_ji:
+            results.append({
+                '시설명': item['시설명'],
+                '주소': f"{normalized_si_do} {so_jae_ji}",
+                '전화번호': item['전화번호'],
+                '홈페이지': item.get('홈페이지', '없음')
+            })
 
-    if isinstance(response, pd.DataFrame):
-        st.table(response)  # 표로 결과 출력
+    if results:
+        st.write(f"네! 말씀하신 지역에 있는 체육시설 목록입니다.")
+        # 결과를 DataFrame으로 변환하여 테이블 출력 (인덱스를 1부터 시작)
+        df = pd.DataFrame(results)
+        df.index = df.index + 1
+        st.table(df)  # Streamlit의 테이블 형태로 출력
     else:
-        st.write(response)  # 메시지 출력
+        st.write("찾으시는 지역에는 체육 시설이 없습니다. 다른 곳에서 찾으시겠습니까?")
