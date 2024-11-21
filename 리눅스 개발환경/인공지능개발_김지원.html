@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인공지능 개발 환경 구축</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ff;
+            color: #333;
+        }
+        header {
+            background-color: #2E9AFE;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #2A6FBD;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin: 5px;
+        }
+        ol {
+            background-color: #e7f0ff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        li {
+            list-style-type: none;
+            margin: 10px;
+            margin-bottom: 5px;
+        }
+        li a {
+            color: #2E9AFE;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        li a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>인공지능 개발 환경 구축하기</h1>
+        <nav>
+            <a href="#purpose">구축 목적</a>
+            <a href="#skill">필요 기술</a>
+            <a href="#VMware">VMware Player 다운로드</a>
+            <a href="#Ubuntu">Ubuntu Linux 설치</a>
+            <a href="#Ubuntu">인공지능 개발 환경 설정</a>
+        </nav>
+    </header>
+    <div class="container">
+        <ol>
+            <h2>목차</h2>
+            <hr>
+            <li><a href="#purpose">1. 구축 목적</a></li>
+            <li><a href="#skill">2. 필요 기술</a></li>
+            <li><a href="#VMware">3. VMware Player 다운로드</a></li>
+            <li><a href="#Ubuntu">4. Ubuntu Linux 설치</a></li>
+            <li><a href="#AI">5. 인공지능 개발 환경 설정</a></li>
+        </ol>
+        <section id="purpose">
+            <h2>구축 목적</h2>
+            <p><b>1. 최신 기술 및 도구 활용</b> : 빠르게 발전하는 인공지능 분야 개발을 위해 최신 환경이 필요함.</p>
+            <p><b>2. 성능과 효율성 향상</b> : 적절한 환경을 구축하면 모델의 성능을 최적화하고 효율성을 향상시킬 수 있음.</p>
+            <p><b>3. 유연한 실험 환경</b> : 새로운 아이디어 및 알고리즘을 실험하고 검증하기 위해서는 유연한 환경이 필요함.</p>
+            <p><b>4. 프로젝트 관리 및 협업</b> : 가상 환경이나 컨테이너를 이용하여 프로젝트를 쉽게 공유할 수 있음.</p>
+            <p><b>5. 비용 절감</b> : 자원을 동적으로 할당하여 필요한 만큼의 컴퓨팅 리소스를 사용하면 비용을 절감할 수 있음.</p>
+            <p><b>6. 시간 단축</b> : 알맞은 환경을 사전에 구축하면 개발 및 실험에 소요되는 시간을 단축 가능함.</p>
+            <p><b>7. 확장성</b> : 프로젝트가 성장할수록 확장 가능한 환경이 필요, 향후의 요구 사항에 대응할 수 있음.</p>
+            <p><b>8. 유지보수 및 관리의 편의성</b> : 버그 수정, 업그레이드, 확장 등의 작업이 용이해짐.</p>
+        </section>
+        <section id="skill">
+            <h2>필요 기술</h2>
+            <p><b>1. 프로그래밍 언어 및 라이브러리</b> : Python, R, NumPy, Pandas, TensorFlow(또는 PyTorch), scikit-learn</p>
+            <p><b>2. 가상화 및 컨테이너 기술</b> : VMware Player, VirtualBox, Docker, Kubernetes</p>
+            <p><b>3. 클라우드 서비스</b> : Amazon Web Services(AWS), Google Cloud Platform(GCP), Microsoft Azure</p>
+            <p><b>4. 개발 환경 설정 및 관리</b> : Anaconda, Jupyter Notebook, Git, 통합 개발 환경(IDE)</p>
+            <p><b>5. 데이터베이스 및 스토리지</b> : MySQL, PostgreSQL, MongoDB, Hadoop, AWS S3, Google Cloud Storage</p>
+        </section>
+        <section id="VMware">
+            <h2>VMware Player 다운로드</h2>
+            <figure>
+                <img width=650, height=400
+                src=".\vmware.png">
+                <figcaption>- VMware Player를 다운로드 받습니다.</figcaption>
+            </figure>
+        </section>
+        <section id="Ubuntu">
+            <h2>Ubuntu Linux 설치</h2>
+            <figure>
+                <img width=600, height=450
+                src=".\ubuntu.png">
+                <figcaption>- Unbuntu Linux를 설치합니다.</figcaption>
+            </figure>
+        </section>
+        <section id="AI">
+            <h2>인공지능 개발 환경 설정</h2>
+            <figure>
+                <img width=700, height=400
+                src=".\first_code.png">
+            </figure>
+            <figure>
+                <img width=700, height=650
+                src=".\second_code.png">
+            </figure>
+            <figure>
+                <img width=700, height=650
+                src=".\third_code.png">
+                <figcaption>- 터미널을 열고 필요한 패키지 및 라이브러리를 설치합니다. (코드 일부 생략함)</figcaption>
+            </figure>
+            <br>
+            <figure>
+                <img width=700, height=730
+                src=".\fourth_code.png">
+                <figcaption>- 가상 환경을 생성하여 개발에 필요한 Python 패키지를 설치합니다. (코드 일부 생략함)</figcaption>
+                <figcaption>- 개발에 필요한 다른 패키지를 추가로 설치할 수 있습니다.</figcaption>
+            </figure>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
